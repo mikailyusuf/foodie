@@ -74,7 +74,7 @@ else
 }
 
 $imageName = $upload_path . $fileName;
-// if no error caused, continue ....
+// if no error caused, continue .....
 if(!isset($errorMSG))
 {
 	$sql = "INSERT INTO `foods`( `id`,`name`, `description`,`price`,`restaurant_id`,`available`,`image`) 
