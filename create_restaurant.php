@@ -2,6 +2,8 @@
 include 'config.php';
 include 'token_generator.php';
 
+$requestMethod = $_SERVER['REQUEST_METHOD'];
+if($requestMethod == "POST"){
 try{
 $json_string = file_get_contents( "php://input");
 $data = json_decode($json_string,true);
@@ -38,5 +40,13 @@ if(sizeof($data) > 4){
 catch(Exception $e) {
     echo 'Message: ' .$e->getMessage();
   }
+
+}
+
+else{
+  $message = json_encode(array("message" => "Bad Request", "status" => false));	
+            http_response_code(400);
+            echo $message;
+}
 
 ?>
