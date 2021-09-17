@@ -5,10 +5,10 @@ try{
 $json_string = file_get_contents( "php://input");
 $data = json_decode($json_string,true);
 
-		$emailData=stripcslashes($data['email']);
-        $email = mysqli_real_escape_string($conn, $emailData);
+		// $emailData=stripcslashes($data['email']);
+        $email = $data['email']; //mysqli_real_escape_string($conn, $emailData);
 		$passwordData=$data['password'];
-        $password = mysqli_real_escape_string($conn, $passwordData);
+        $password =  $data['password']; //mysqli_real_escape_string($conn, $passwordData);
 
         $sql = "SELECT * FROM restaurants WHERE email = '$email' ";  
         $result = mysqli_query($conn, $sql);  
