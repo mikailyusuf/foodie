@@ -11,8 +11,8 @@ require 'vendor/autoload.php';
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 if($requestMethod == "POST"){
  try{
- $json_string = file_get_contents( "php://input");
- $data = json_decode($json_string,true);
+   $json_string = file_get_contents( "php://input");
+   $data = json_decode($json_string,true);
 
     if(sizeof($data) > 4){
 		$name=$data['name'];
@@ -25,11 +25,11 @@ if($requestMethod == "POST"){
     $activationcode=md5($email.time());
 
     verifyEmail($email);
-              
-  }
+    } //1f
+
      else{
         http_response_code(400);
-    } 
+    } //1e
   }
 
     catch(Exception $e){
@@ -154,5 +154,5 @@ try{
   }
 
 }
-
+}
 ?>
