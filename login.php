@@ -10,7 +10,7 @@ $data = json_decode($json_string,true);
 		$passwordData=$data['password'];
         $password = mysqli_real_escape_string($conn, $passwordData);
 
-        $sql = "SELECT * FROM users WHERE email = '$email' ";  
+        $sql = "SELECT * FROM restaurants WHERE email = '$email' ";  
         $result = mysqli_query($conn, $sql);  
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
         $count = mysqli_num_rows($result);
