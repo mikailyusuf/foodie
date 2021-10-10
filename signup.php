@@ -14,7 +14,7 @@ $data = json_decode($json_string,true);
         $token = generateToken();
       $user_id = uniqid();
 
-        $sql = "INSERT INTO `restaurants`( `id`,`name`, `email`,`phone`,`address`,`token`,`password`) 
+        $sql = "INSERT INTO `users`( `id`,`name`, `email`,`phone`,`address`,`token`,`password`) 
 		VALUES ('$user_id','$name','$email','$phone','$address','$token','$password')";
 		if (mysqli_query($conn, $sql)) {
             $message = json_encode(array("message" => "User Created Successfully", "status" => true));	
@@ -29,6 +29,8 @@ $data = json_decode($json_string,true);
  
 
 		}
+        // echo(json_encode($data));
+        // echo($password);
 }
 catch(Exception $e) {
     echo 'Message: ' .$e->getMessage();
