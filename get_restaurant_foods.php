@@ -6,11 +6,11 @@ $json_string = file_get_contents( "php://input");
 $data = json_decode($json_string,true);
 
 		$id=stripcslashes($data['id']);
-        $restaurant_id = mysqli_real_escape_string($conn, $id);
+        $restaurant_id = mysqli_real_escape_string($CONNECTION, $id);
 	
 
         $sql = "SELECT * FROM foods WHERE restaurant_id = '$restaurant_id' ";  
-            $result = mysqli_query($conn, $sql);  
+            $result = mysqli_query($CONNECTION, $sql);
           
             $emparray = array();
             while($row =mysqli_fetch_assoc($result))

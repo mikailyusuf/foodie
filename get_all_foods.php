@@ -4,7 +4,7 @@ include 'config.php';
 try{
 
         $sql = "SELECT * FROM foods";  
-        $result = mysqli_query($conn, $sql);  
+        $result = mysqli_query($CONNECTION, $sql);
         // $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
         // $count = mysqli_num_rows($result);
 

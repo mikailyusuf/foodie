@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "password";
 $dbname = "foodie";
 
 // Create connection
@@ -15,8 +15,13 @@ if ($conn->connect_error) {
 $sql = "CREATE TABLE restaurants (
 id VARCHAR(255) NOT NULL,
 firstname VARCHAR(30) NOT NULL,
-lastname VARCHAR(30) NOT NULL,
 email VARCHAR(50),
+phone VARCHAR(50),
+is_verified VARCHAR(5),
+is_active VARCHAR(50),
+user_address VARCHAR(250),
+token VARCHAR(200),
+user_password VARCHAR(50),
 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
 

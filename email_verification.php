@@ -1,16 +1,17 @@
 <?php
-	include('conn.php');
-	session_start();
+require_once('Authentication.php');
+$connection = new Connection();
+
 	if(isset($_GET['code'])){
-	$user=$_GET['uid'];
+	$userId=$_GET['uid'];
 	$code=$_GET['code'];
  
-	$query=mysqli_query($conn,"select * from restaurants where user_id='$user'");
+	$query=mysqli_query($connection->connectToLocalDb(),"select * from restaurants where id='$userId'");
 	$row=mysqli_fetch_array($query);
  
-	if($row['code']==$code){
+	if($row['token']==$code){
 		//activate account
-		mysqli_query($conn,"update restaurants set is_verified ='1' where user_id='$user'");
+		mysqli_query($connection->connectToLocalDb(),"update restaurants set is_verified ='1' where id='$userId'");
 		?>
 		<p>Account Verified!</p>
 		<p><a href="index.php">Login Now</a></p>

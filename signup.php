@@ -16,7 +16,7 @@ $data = json_decode($json_string,true);
 
         $sql = "INSERT INTO `users`( `id`,`name`, `email`,`phone`,`address`,`token`,`password`) 
 		VALUES ('$user_id','$name','$email','$phone','$address','$token','$password')";
-		if (mysqli_query($conn, $sql)) {
+		if (mysqli_query($CONNECTION, $sql)) {
             $message = json_encode(array("message" => "User Created Successfully", "status" => true));	
             http_response_code(201);
             echo $message;
@@ -24,7 +24,7 @@ $data = json_decode($json_string,true);
 		else {
 		
       http_response_code(40);
-            $message = json_encode(array("message" => mysqli_error($conn), "status" => false));	
+            $message = json_encode(array("message" => mysqli_error($CONNECTION), "status" => false));
             echo $message;
  
 

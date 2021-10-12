@@ -79,7 +79,7 @@ if(!isset($errorMSG))
 {
 	$sql = "INSERT INTO `foods`( `id`,`name`, `description`,`price`,`restaurant_id`,`available`,`image`) 
     VALUES ('$food_id','$name','$description','$price','$restaurantId','$isAvailable','$imageName')";
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_query($CONNECTION, $sql)) {
         $message = json_encode(array("message" => "Food Created Successfully", "status" => true));
 		http_response_code(201);	
         echo $message;
@@ -87,7 +87,7 @@ if(!isset($errorMSG))
 	else {
 		echo "An error occured"; 
 		http_response_code(400);
-        $message = json_encode(array("message" => mysqli_error($conn), "status" => false));	
+        $message = json_encode(array("message" => mysqli_error($CONNECTION), "status" => false));
         echo $message;
 
     }
